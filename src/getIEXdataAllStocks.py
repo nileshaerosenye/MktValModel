@@ -11,12 +11,6 @@ This code scraps the narket cap value from the Zacks website, for a given list o
 import pandas as pd
 import requests
 
-
-symbols = pd.read_csv("../data/combined.csv")
-print(symbols)
-
-baseURL="https://api.iextrading.com/1.0"
-
 # Get daily chart details every minute trading : https://api.iextrading.com/1.0/stock/aapl/chart/1d
 # Get company details: industry, ceo: https://api.iextrading.com/1.0/stock/aapl/company
 # Earnings: https://api.iextrading.com/1.0/stock/aapl/earnings
@@ -57,7 +51,12 @@ def processSymbol( sym ):
     else:
         print(sym, ": Failed.")
     
-    
+
+######################################################################
+### M A I N
+
+symbols = pd.read_csv("../data/combined.csv")
+print(symbols) 
 
 #request = requests.get()
 fCSV = open("../data/allMktCap.csv","w")
